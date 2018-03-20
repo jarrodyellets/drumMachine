@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import DrumPad from './components/drumPads';
 import Pad from './components/pads';
 import Slider from './components/slider';
+import Top from './components/top';
 
 const bank1 = [{
 		keyCode: 81,
@@ -57,6 +58,7 @@ class App extends React.Component {
 		this.state = {
 			power: true,
 			currentBank: bank1,
+			bankTitle: 'BANK1',
 			volume: 0.5
 		}
 		this.changeVolume = this.changeVolume.bind(this);
@@ -69,6 +71,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="machine">
+			<Top volume={this.state.volume} bankTitle={this.state.bankTitle} />
 				<div className="controls">
 					<Slider volume={this.state.volume} newVolume={this.changeVolume}/>
 				 	<DrumPad bank={this.state.currentBank} volume={this.state.volume} />
