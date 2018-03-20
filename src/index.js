@@ -109,7 +109,8 @@ class App extends React.Component {
 			pitch: 1.00
 		}
 		this.changeVolume = this.changeVolume.bind(this);
-		this.changePitch = this.changePitch.bind(this)
+		this.changePitch = this.changePitch.bind(this);
+		this.changeBank = this.changeBank.bind(this);
 	}
 
 	changeVolume(input){
@@ -120,10 +121,22 @@ class App extends React.Component {
 		this.setState({ pitch: input });
 	}
 
+	changeBank(input){
+		if(input){
+			this.setState({ currentBank: bank1 });
+		} else {
+			this.setState({ currentBank: bank2 });
+		}
+		
+	}
+
 	render() {
 		return (
 			<div className="machine">
-			<Top volume={this.state.volume} pitch={this.state.pitch} bankTitle={this.state.bankTitle} />
+			<Top volume={this.state.volume} 
+					 pitch={this.state.pitch} 
+					 bankTitle={this.state.bankTitle} 
+					 changeBank={this.changeBank} />
 				<div className="controls">
 					<Slider volume={this.state.volume} 
 									pitch={this.state.pitch} 
