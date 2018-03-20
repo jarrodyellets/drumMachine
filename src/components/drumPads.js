@@ -16,6 +16,7 @@ class DrumPad extends React.Component {
 					letter={arr[i].letter}
 					audioUrl={arr[i].url}
 					volume={this.props.volume}
+					pitch={this.props.pitch}
 				/>
 
 				)

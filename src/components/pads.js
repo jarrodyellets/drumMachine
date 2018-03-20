@@ -22,6 +22,7 @@ class Pad extends React.Component {
 	playAudio() {
 		const audio = document.getElementById(this.props.letter);
 		audio.volume = this.props.volume;
+		audio.playbackRate = this.props.pitch;
 		audio.currentTime = 0;
 		audio.play();
 		this.handleClick();
