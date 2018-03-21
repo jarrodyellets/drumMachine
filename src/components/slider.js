@@ -24,7 +24,7 @@ class Slider extends React.Component {
 					<input type='range' className='slider' value={this.props.volume} min='0' max='1' step="0.01" onChange={this.newVolume}/>
 				</div>
 				<div className='sliderDiv'>
-					<div className="slideTitle">SPEED</div>	
+					<div className="slideTitle">TEMPO</div>	
 					<input type='range' className='slider' value={this.props.pitch} min='0.1' max='2.0' step="0.01" onChange={this.newPitch}/>
 				</div>
 			</div>

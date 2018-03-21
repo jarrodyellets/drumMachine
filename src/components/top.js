@@ -33,7 +33,7 @@ class Top extends React.Component {
 					<div className="display">{this.props.power ? Math.round(this.props.volume * 100) : ""}</div>
 				</div>
 				<div className="volume">
-					SPEED
+					TEMPO
 					<div className="display">{this.props.power ? this.props.pitch : ""}</div>
 				</div>
 				<div className="knobDiv">
