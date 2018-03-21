@@ -31,7 +31,7 @@ body {
 	margin: 0 auto;
 	color: #d3d3d3;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	border-radius: 10px;
 	border: 1px solid #111;
@@ -49,9 +49,6 @@ body {
 }
 
 .brand {
-	position: absolute;
-	top: 0;
-	left: 3%;
 	font-size: 50px;
 	margin: 0;
 	font-family: 'Noto Sans', sans-serif;
@@ -76,9 +73,7 @@ body {
 	border-radius: 5px;
 }
 
-.bankDiv {
-	position: absolute;
-	right: 5%;
+.knobDiv {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -163,6 +158,10 @@ body {
 
 .letterActive {
 	font-size: 17px;
+}
+
+.keyLetter {
+	transform: skew(-5deg, -5deg);
 }
 
 .active {
@@ -283,12 +282,12 @@ input[type=checkbox]:checked + .slide {
   transform: rotate(45deg);
 }
 
-#mini {
+.leftLabel {
 	padding-right: 8px;
 	padding-bottom: 30px;
 }
 
-#rouge {
+.rightLabel {
 	padding-left: 8px;
 	padding-bottom: 30px;
 }
