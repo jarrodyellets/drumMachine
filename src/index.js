@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DrumPad from './components/drumPads';
-import Pad from './components/pads';
 import Slider from './components/slider';
 import Top from './components/top';
 
@@ -103,7 +102,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			power: true,
+			power: false,
 			currentBank: bank2,
 			volume: 0.5,
 			pitch: 1.00
@@ -111,6 +110,7 @@ class App extends React.Component {
 		this.changeVolume = this.changeVolume.bind(this);
 		this.changePitch = this.changePitch.bind(this);
 		this.changeBank = this.changeBank.bind(this);
+		this.changePower = this.changePower.bind(this);
 	}
 
 	changeVolume(input){
@@ -127,7 +127,14 @@ class App extends React.Component {
 		} else {
 			this.setState({ currentBank: bank2 });
 		}
-		
+	}
+
+	changePower(input){
+		if(input){
+			this.setState({ power: true });
+		} else {
+			this.setState({ power: false });
+		}
 	}
 
 	render() {
@@ -136,13 +143,19 @@ class App extends React.Component {
 			<Top volume={this.state.volume} 
 					 pitch={this.state.pitch} 
 					 bankTitle={this.state.bankTitle} 
-					 changeBank={this.changeBank} />
+					 changeBank={this.changeBank}
+					 power={this.state.power}
+					 changePower={this.changePower} />
 				<div className="controls">
 					<Slider volume={this.state.volume} 
 									pitch={this.state.pitch} 
 									newVolume={this.changeVolume}
 									newPitch={this.changePitch}/>
-				 	<DrumPad bank={this.state.currentBank} volume={this.state.volume} pitch={this.state.pitch} />
+				 	<DrumPad bank={this.state.currentBank} 
+				 					 volume={this.state.volume} 
+				 					 pitch={this.state.pitch}
+				 					 power={this.state.power}
+				 					  />
 				</div>
 			</div>
 		)

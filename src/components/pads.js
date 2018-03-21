@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class Pad extends React.Component {
 	constructor(props) {
 		super(props);
@@ -21,12 +20,14 @@ class Pad extends React.Component {
 
 	playAudio() {
 		const audio = document.getElementById(this.props.letter);
-		audio.volume = this.props.volume;
-		audio.playbackRate = this.props.pitch;
-		audio.currentTime = 0;
-		audio.play();
 		this.handleClick();
 		setTimeout(() => this.handleClick(), 150);
+		if(this.props.power){
+			audio.volume = this.props.volume;
+			audio.playbackRate = this.props.pitch;
+			audio.currentTime = 0;
+			audio.play();
+		} 
 	}
 
 	handleKeyPress(e) {
@@ -45,7 +46,7 @@ class Pad extends React.Component {
 		return (
 			<div className={['pad', this.state.active ? 'padActive' : null].join(' ')} onClick={this.playAudio}>
 				<div className={this.state.active ? 'letterActive' : null}>{this.props.soundId}</div>
-				<div className={['letter', this.state.active ? 'active' : null].join(' ')}>{this.props.letter}</div>
+				<div className={['letter', this.state.active ? 'keyLetter' : null, this.state.active && this.props.power ? 'active' : null].join(' ')}>{this.props.letter}</div>
 				<audio id={this.props.letter} src={this.props.audioUrl}></audio>
 			</div>
 			)

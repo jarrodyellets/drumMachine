@@ -4,14 +4,23 @@ class Top extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.handleChange = this.handleChange.bind(this);
+		this.bankChange = this.bankChange.bind(this);
+		this.powerChange = this.powerChange.bind(this);
 	}
 
-	handleChange(e){
+	bankChange(e){
 		if(e.target.checked){
 			this.props.changeBank(true);
 		} else {
 			this.props.changeBank(false);
+		}
+	}
+
+	powerChange(e){
+		if(e.target.checked){
+			this.props.changePower(true);
+		} else {
+			this.props.changePower(false);
 		}
 	}
 
@@ -21,19 +30,27 @@ class Top extends React.Component {
 				<h4 className="brand">moog</h4>
 				<div className="volume">
 					VOLUME
-					<div className="Display">{Math.round(this.props.volume * 100)}</div>
+					<div className="Display">{this.props.power ? Math.round(this.props.volume * 100) : ""}</div>
 				</div>
 				<div className="volume">
 					SPEED
-					<div className="Display">{this.props.pitch}</div>
+					<div className="Display">{this.props.power ? this.props.pitch : ""}</div>
 				</div>
-				<div className="bankDiv">
-					<span id="mini">mini</span>
+				<div className="knobDiv">
+					<span className="leftLabel">off</span>
 		      <label className="switch">
-		        <input id="power" type="checkbox" onChange={this.handleChange}/>
+		        <input type="checkbox" onChange={this.powerChange}/>
 		        <span className="slide"></span>
 		      </label>
-		      <span id="rouge">rogue</span>
+		      <span className="rightLabel">on</span>
+				</div>
+				<div className="knobDiv">
+					<span className="leftLabel">mini</span>
+		      <label className="switch">
+		        <input type="checkbox" onChange={this.bankChange}/>
+		        <span className="slide"></span>
+		      </label>
+		      <span className="rightLabel">rogue</span>
 				</div>
 			</div>
 			)
