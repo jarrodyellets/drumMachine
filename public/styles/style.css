@@ -285,16 +285,24 @@ input[type=checkbox]:checked + .slide {
 }
 
 .slideTitle {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 	font-family: 'Noto Sans', sans-serif;
 	color: #d3d3d3;
 	font-size: 10px;
-	margin-bottom: 10px;
 }
 
 .slider {
-	height: 350px;
-	width: 100%;
-	-webkit-appearance: slider-vertical;
+	height: 40px;
+	width: 350px;
+	-webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .slider:focus {
