@@ -51,8 +51,9 @@ body {
 }
 
 .brand {
-	font-size: 50px;
+	font-size: 55px;
 	margin: 0;
+	padding-bottom: 15px;
 }
 
 .volume {
