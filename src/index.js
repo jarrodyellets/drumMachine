@@ -4,97 +4,97 @@ import DrumPad from './components/drumPads';
 import Slider from './components/slider';
 import Top from './components/top';
 
-const bank1 = [{
+const rogue = [{
 		keyCode: 81,
 		letter: 'Q',
-		id: 'Heater-1',
+		id: 'Keys-1',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-1.mp3'
 	}, {
 		keyCode: 87,
 		letter: 'W',
-		id: 'Heater-2',
+		id: 'Keys-2',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-2.mp3'
 	}, {
 		keyCode: 69,
 		letter: 'E',
-		id: 'Heater-3',
+		id: 'Keys-3',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-3.mp3'
 	}, {
 		keyCode: 65,
 		letter: 'A',
-		id: 'Heater-4',
+		id: 'Awake',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-4.mp3'
 	}, {
 		keyCode: 83,
 		letter: 'S',
-		id: 'Clap',
+		id: 'Bounce',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-5.mp3'
 	}, {
 		keyCode: 68,
 		letter: 'D',
-		id: 'Open-HH',
+		id: 'String',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-6.mp3'
 	}, {
 		keyCode: 90,
 		letter: 'Z',
-		id: 'Kick-n-Hat',
+		id: 'Hole',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-7.mp3'
 	}, {
 		keyCode: 88,
 		letter: 'X',
-		id: 'Kick',
+		id: 'Moon',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-8.mp3'
 	}, {
 		keyCode: 67,
 		letter: 'C',
-		id: 'Closed-HH',
+		id: 'Space',
 		url: 'https://www.jarrodyellets.com/sounds/moog/rouge-9.mp3'
 	}];
 
-const bank2 = [{
+const mini = [{
 		keyCode: 81,
 		letter: 'Q',
-		id: 'Chord-1',
+		id: 'Phase Laser',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-1.mp3'
 	}, {
 		keyCode: 87,
 		letter: 'W',
-		id: 'Chord-2',
+		id: 'Drill',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-2.mp3'
 	}, {
 		keyCode: 69,
 		letter: 'E',
-		id: 'Chord-3',
+		id: 'Droplet',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-3.mp3'
 	}, {
 		keyCode: 65,
 		letter: 'A',
-		id: 'Shaker',
+		id: 'Plane',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-4.mp3'
 	}, {
 		keyCode: 83,
 		letter: 'S',
-		id: 'Open-HH',
+		id: 'Groove',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-5.mp3'
 	}, {
 		keyCode: 68,
 		letter: 'D',
-		id: 'Closed-HH',
+		id: 'Leopard',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-6.mp3'
 	}, {
 		keyCode: 90,
 		letter: 'Z',
-		id: 'Punchy-Kick',
+		id: 'Wave',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-7.mp3'
 	}, {
 		keyCode: 88,
 		letter: 'X',
-		id: 'Side-Stick',
+		id: 'Scope',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-8.mp3'
 	}, {
 		keyCode: 67,
 		letter: 'C',
-		id: 'Snare',
+		id: 'Comet',
 		url: 'https://www.jarrodyellets.com/sounds/moog/mini-9.mp3'
 	}];
 
@@ -103,7 +103,7 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			power: false,
-			currentBank: bank2,
+			currentBank: mini,
 			volume: 0.5,
 			pitch: 1.00
 		}
@@ -123,9 +123,9 @@ class App extends React.Component {
 
 	changeBank(input){
 		if(input){
-			this.setState({ currentBank: bank1 });
+			this.setState({ currentBank: rogue });
 		} else {
-			this.setState({ currentBank: bank2 });
+			this.setState({ currentBank: mini });
 		}
 	}
 
@@ -139,26 +139,29 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="machine">
-			<Top volume={this.state.volume} 
-					 pitch={this.state.pitch} 
-					 bankTitle={this.state.bankTitle} 
-					 changeBank={this.changeBank}
-					 power={this.state.power}
-					 changePower={this.changePower} />
-				<div className="controls">
-					<Slider volume={this.state.volume} 
-									pitch={this.state.pitch} 
-									newVolume={this.changeVolume}
-									newPitch={this.changePitch}/>
-				 	<DrumPad bank={this.state.currentBank} 
-				 					 volume={this.state.volume} 
-				 					 pitch={this.state.pitch}
-				 					 power={this.state.power}
-				 					  />
+			<div>
+				<div className="machine">
+				<Top volume={this.state.volume} 
+						 pitch={this.state.pitch} 
+						 bankTitle={this.state.bankTitle} 
+						 changeBank={this.changeBank}
+						 power={this.state.power}
+						 changePower={this.changePower} />
+					<div className="controls">
+						<Slider volume={this.state.volume} 
+										pitch={this.state.pitch} 
+										newVolume={this.changeVolume}
+										newPitch={this.changePitch}/>
+					 	<DrumPad bank={this.state.currentBank} 
+					 					 volume={this.state.volume} 
+					 					 pitch={this.state.pitch}
+					 					 power={this.state.power}
+					 					  />
+					</div>
 				</div>
-			</div>
-		)
+  			<div id="author">&copy; Jarrod Yellets | 2018</div>
+  		</div>
+  		)
 	}
 }
 

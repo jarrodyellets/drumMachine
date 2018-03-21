@@ -30,11 +30,11 @@ class Top extends React.Component {
 				<h4 className="brand">moog</h4>
 				<div className="volume">
 					VOLUME
-					<div className="Display">{this.props.power ? Math.round(this.props.volume * 100) : ""}</div>
+					<div className="display">{this.props.power ? Math.round(this.props.volume * 100) : ""}</div>
 				</div>
 				<div className="volume">
 					SPEED
-					<div className="Display">{this.props.power ? this.props.pitch : ""}</div>
+					<div className="display">{this.props.power ? this.props.pitch : ""}</div>
 				</div>
 				<div className="knobDiv">
 					<span className="leftLabel">off</span>
